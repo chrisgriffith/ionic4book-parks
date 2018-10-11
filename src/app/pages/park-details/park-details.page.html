@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/(parks:parks)"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{parkInfo?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="assets/img/headers/{{parkInfo?.header}}">
+  <h1 padding>{{parkInfo?.name}}</h1>
+  <ion-card>
+    <ion-card-header>
+      Park Details
+    </ion-card-header>
+    <ion-card-content>
+      {{parkInfo?.details}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
