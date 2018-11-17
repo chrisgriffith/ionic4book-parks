@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>National Parks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getParks($event)" (ionClear)="resetList($event)"></ion-searchbar>
+  </ion-toolbar>
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let park of parkData" detail="true" lines="full" (click)="goParkDetails(park)">
+      <ion-thumbnail slot="start">
+        <img src="assets/img/thumbs/{{park.image}}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{park.name}}</h2>
+        <p>{{park.state}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-virtual-scroll [items]="parkData" [headerFn]="customHeaderFn">
+      <ion-item-divider *virtualHeader="let header" color="secondary">
+      {{ header }}
+    </ion-item-divider>
+    <ion-item *virtualItem="let park" (click)="goParkDetails(park)" detail="true">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="park.image"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{park.name}}</h2>
+        <p>{{park.state}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-virtual-scroll>
+</ion-content>
