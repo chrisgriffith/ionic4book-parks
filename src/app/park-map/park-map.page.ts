@@ -4,8 +4,6 @@ import { Platform } from '@ionic/angular';
 import { ParkDataService } from '../park-data.service';
 import { Park } from '../park';
 
-declare const google: any;
-
 @Component({
   selector: 'app-park-map',
   templateUrl: './park-map.page.html',
@@ -13,13 +11,14 @@ declare const google: any;
 })
 
 export class ParkMapPage implements OnInit {
-  @ViewChild('gmap') gmapElement: any;
-  map: any;
   public parkData: Array<Park>;
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
 
   constructor(private _parkDataService: ParkDataService,
     private router: Router,
-    private platform: Platform) { }
+    private platform: Platform
+  ) { }
 
   ngOnInit() {
     this._parkDataService.load().subscribe((data) => {
@@ -31,7 +30,8 @@ export class ParkMapPage implements OnInit {
   initializeMap() {
     this.platform.ready().then(() => {
       const mapProp = {
-        center: new google.maps.LatLng(39.833, -98.583), mapTypeControl: false,
+        center: new google.maps.LatLng(39.833, -98.583),
+        mapTypeControl: false,
         streetViewControl: false,
         zoom: 3,
         fullscreenControl: false,
@@ -58,9 +58,8 @@ export class ParkMapPage implements OnInit {
     }
   }
 
-  // markerClickHandler(marker: google.maps.Marker) {
   markerClickHandler(marker: google.maps.Marker) {
     const theparkID: number = marker.get('id');
-    this.router.navigateByUrl(`tabs/(map:detail/${theparkID})`);
+    this.router.navigateByUrl(`tabs/map/detail/${theparkID}`);
   }
 }

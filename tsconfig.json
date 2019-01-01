@@ -10,7 +10,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "types": ["googlemaps"],
     "typeRoots": [
       "node_modules/@types"
     ],

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Park } from './park';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,9 @@ export class ParkDataService {
     if (this._parkData !== undefined && this._parkData.length !== 0) {
       return of(this._parkData);
     }
-    return this.http.get<any[]>(this._dataURL).pipe(
+    return this.http.get<Park[]>(this._dataURL).pipe(
       // map(data => this._parkData = data)
+      // Virtual Scroll
 
       map(data => {
         data.forEach(park => {
@@ -28,4 +30,5 @@ export class ParkDataService {
       map(data => this._parkData = data)
     );
   }
+
 }

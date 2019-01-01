@@ -11,10 +11,9 @@ import { Park } from '../park';
 export class ParkDetailsPage implements OnInit {
   parkInfo: Park;
 
-  constructor(
-    private route: ActivatedRoute,
+  constructor( private route: ActivatedRoute,
     private _parkDataService: ParkDataService
-  ) { }
+   ) { }
 
   ngOnInit() {
   }
@@ -26,4 +25,5 @@ export class ParkDetailsPage implements OnInit {
       console.log(this.parkInfo);
     });
   }
+
 }

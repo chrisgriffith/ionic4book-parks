@@ -1,5 +1,7 @@
 {
-  "name": "ionic4book-parks",
-  "integrations": {},
+  "name": "IonicParks",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
