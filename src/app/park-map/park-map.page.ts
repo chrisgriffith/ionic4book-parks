@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { ParkDataService } from '../park-data.service';
 import { Park } from '../park';
+// import { google } from 'google-maps';
+
+// declare var google: google;
 
 @Component({
   selector: 'app-park-map',
@@ -13,7 +16,7 @@ import { Park } from '../park';
 export class ParkMapPage implements OnInit {
   public parkData: Array<Park>;
   @ViewChild('gmap') gmapElement: any;
-  map: google.maps.Map;
+   map: google.maps.Map;
 
   constructor(private _parkDataService: ParkDataService,
     private router: Router,

@@ -1,7 +1,5 @@
 {
   "name": "IonicParks",
-  "integrations": {
-    "cordova": {}
-  },
+  "integrations": {},
   "type": "angular"
 }
